@@ -52,7 +52,7 @@ void invalidStatCheck(int numberOfPlayers, struct player playerInfo[6]){
 // This function changes the stats of the player, depending on which slot they move to
 void changeStats(struct slots slotsArray[20], struct player playerInfo[6], int n1)
 {
-	int i, j, HoldForStats;
+	int  j, HoldForStats;
 	for(j=0;j<n1;j++)//counts through all slots
 	{
 		if(slotsArray[j].playerNum+1 != 0)//if a player is found in a slot, proceed

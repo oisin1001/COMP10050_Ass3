@@ -16,13 +16,13 @@
  * Definition of boolean types
  * This avoids using <stdbool.h>
  */
-//typedef int bool;
-//enum { false, true };
+typedef int bool;
+enum { false, true };
 
 /*
  * The slot template
  */
-/*struct slot{
+struct slot{
 	//row number
 	int row;
 	//column number
@@ -36,7 +36,7 @@
 	struct slot *up;
 	// adjacent down slot
 	struct slot *down;
-}slot;*/
+}slot;
 struct player
 {
     char type[10];//type

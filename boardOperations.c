@@ -12,7 +12,6 @@
 #include "crossfireOperations.h"
 
 
-
 /*
  * This function creates the board
  * Parameters:

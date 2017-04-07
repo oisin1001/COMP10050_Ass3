@@ -8,19 +8,6 @@
 
 
 // These are the prototypes for all the functions we will use in this program
-void selectType(int numberOfPlayers, struct player playerInfo[6]);
-void statsForElf(struct player playerInfo[6], int i);
-void statsForHuman(struct player playerInfo[6], int i);
-void statsForOgre(struct player playerInfo[6], int i);
-void statsForWizard(struct player playerInfo[6], int i);
-int slotsAllocation(struct slots slotsArray[20], int numberOfPlayers, int i,struct player playerInfo[6]);
-void moveSlots(struct slots slotsArray[20], struct player playerInfo[6], int numberOfPlayers);
-void changeStats(struct slots slotsArray[20], struct player playerInfo[6], int n1);
-void closestPlayer(int numberOfPlayers, struct player playerInfo[6], struct slots slotsArray[20], int n1);
-void statusPrint(int numberOfPlayers, struct player PlayerInfo[6]);
-void printStats(int numberOfPlayers, struct player playerInfo[6]);
-void printSlots(int numberOfPlayers, struct slots slotsArray[20], int n1);
-void invalidStatCheck(int numberOfPlayers, struct player playerInfo[6]);
 
 int main (void)
 {
