@@ -19,17 +19,14 @@ int main (void)
 
 	// This line is needed to ensure values are truly random
 	srand(time(NULL));
-	int i, numberOfPlayers = 0, n1, row, column, boardSize = 7;
+	int i, j, numberOfPlayers = 0, n1, row, column, boardSize = 7;
 
 	//pointer to slot (0,0)
 	struct slot *upLeft;
-
 	//pointer to slot (0,boardSize -1)
 	struct slot *upRight;
-
 	//pointer to slot (boardSize - 1, 0)
 	struct slot *downLeft;
-
 	//pointer to slot (boardSize - 1, boardSize -1)
 	struct slot *downRight;
 
@@ -44,15 +41,30 @@ int main (void)
 	// This functions lets the user select a type and name, and assigns random values for the attributes (using details from the assignment document)
 	selectType(numberOfPlayers, playerInfo);
 
+
+	//  Slots
+	createBoard(boardSize,&upLeft, &upRight, &downLeft, &downRight);
+
+
+	// Print function - doesn't work. Doesn't recognise board[][]
+	//
+	//
+	for (i = 0; i < boardSize; i++)
+	{
+		for (j = 0; j < boardSize; j++)
+		{
+		//	printf("Row %d Column %d: %s", i, j, board[i][j].Slot_type);
+		}
+	}
 	// This function prints the attributes for each player
-	printf("-------Player Stats-------\n");
+/*	printf("-------Player Stats-------\n");
 	printStats(numberOfPlayers, playerInfo);
 
 	// This function allocates the slots, and calls the printSlots function to print the slots
 //	n1 = slotsAllocation(slotsArray, numberOfPlayers,i,playerInfo);
 
-	
 
+	
 
 	// This lets the user choose to move
 	moveSlots(slotsArray, playerInfo, numberOfPlayers);
@@ -73,7 +85,7 @@ int main (void)
 	closestPlayer(numberOfPlayers, playerInfo, slotsArray, n1);
 
 	// This prints the status at the end of the game
-	statusPrint(numberOfPlayers, playerInfo);
+	statusPrint(numberOfPlayers, playerInfo); */
 
 	return 0;
 }

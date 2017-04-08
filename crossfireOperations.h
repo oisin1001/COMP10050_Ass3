@@ -26,6 +26,8 @@ struct slot{
 	struct slot *up;
 	// adjacent down slot
 	struct slot *down;
+
+	char Slot_type[20];
 }slot;
 
 struct player
@@ -69,6 +71,10 @@ void invalidStatCheck(int numberOfPlayers, struct player playerInfo[6]);
 /*
  * FUNCTIONS PROTOTYPES
  */
+
+// NEW FUNCTIONS
+
+void createBoard(int boardSize, struct slot **upLeft, struct slot **upRight, struct slot **downLeft, struct slot **downRight);
 
 /*
  * Functions getBoardSize and getDesiredElement
