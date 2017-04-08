@@ -12,16 +12,6 @@
 
 #endif /* CROSSFIREOPERATIONS_H_ */
 
-/*
- * Definition of boolean types
- * This avoids using <stdbool.h>
- */
-typedef int bool;
-enum { false, true };
-
-/*
- * The slot template
- */
 struct slot{
 	//row number
 	int row;
@@ -37,6 +27,7 @@ struct slot{
 	// adjacent down slot
 	struct slot *down;
 }slot;
+
 struct player
 {
     char type[10];//type
@@ -59,6 +50,7 @@ struct slots
 	char player[20];//note what player is in the slot
 	char playerNum;
 };
+
 struct slots slotsArray[20];
 
 void selectType(int numberOfPlayers, struct player playerInfo[6]);

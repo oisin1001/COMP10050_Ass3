@@ -7,6 +7,7 @@
  */
 
 #include <stdio.h>
+#include <stdbool.h>
 #include "crossfireOperations.h"
 
 //This function returns the board size provided as input by the user
