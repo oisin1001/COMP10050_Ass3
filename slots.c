@@ -15,11 +15,11 @@
  * 	upLeft: pointer of pointer to slot at position (boardSize - 1, boardSize -1)
  */
 
-void createBoard(int boardSize, struct slot **upLeft, struct slot **upRight, struct slot **downLeft, struct slot **downRight){
+void createBoard(int boardSize, struct slot **upLeft, struct slot **upRight, struct slot **downLeft, struct slot **downRight, struct slot **board){
 
 	//The board is represented as a pointer of pointer to slots
 	//This allocates in memory the space for the pointers to each row of the board
-	struct slot ** board = malloc(boardSize * sizeof(struct slot *));
+	
 
 	printf("createBoard started\n");
 	for(int i =0; i< boardSize; i++){
@@ -30,8 +30,9 @@ void createBoard(int boardSize, struct slot **upLeft, struct slot **upRight, str
 		for(int j=0;j < boardSize; j++){
 			board[i][j].row = i;
 			board[i][j].column = j;
-			int j = rand() % 3;// generate a random value 0, 1 or 2, then use this to assign slot type we will use
-			if (j==0)
+			int k = rand() % 3;// generate a random value 0, 1 or 2, then use this to assign slot type we will use
+			board[i][j].type = k;
+		/*	if (j==0)
 			{
 				strcpy(board[i][j].Slot_type, "Level Ground");
 			}
@@ -43,8 +44,8 @@ void createBoard(int boardSize, struct slot **upLeft, struct slot **upRight, str
 			if (j==2)
 			{
 				strcpy(board[i][j].Slot_type, "City");
-			}
-			printf("%s, ", board[i][j].Slot_type);
+			}*/
+		//	printf("%s, ", board[i][j].Slot_type);
 			//	slotsArray[i].player = "_";
 			// I let the playerNum of every struct in the array equal to -1 -- I'll use this in later when finding the closest player
 		}
@@ -126,11 +127,6 @@ void createBoard(int boardSize, struct slot **upLeft, struct slot **upRight, str
 		board[boardSize - 1][boardSize -1].left = &board[boardSize -1][boardSize -2];
 
 
-
-
-
-
-
 	//assigns a pointer to slot at position (0, 0)
 	*upLeft = &board[0][0];
 	//assigns pointer of pointer to slot at position (0, boardSize -1)
@@ -139,8 +135,6 @@ void createBoard(int boardSize, struct slot **upLeft, struct slot **upRight, str
 	*downLeft = &board[boardSize -1][0];
 	//assigns pointer of pointer to slot at position (boardSize -1, boardSize -1)
 	*downRight = &board[boardSize -1][boardSize -1];
-
-
 }
 
 // This creates the slots, and places players in each slot

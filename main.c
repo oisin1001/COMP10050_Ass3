@@ -39,11 +39,12 @@ int main (void)
 	struct player playerInfo[numberOfPlayers];
 
 	// This functions lets the user select a type and name, and assigns random values for the attributes (using details from the assignment document)
-	selectType(numberOfPlayers, playerInfo);
+//	selectType(numberOfPlayers, playerInfo);
 
+	struct slot ** board = malloc(boardSize * sizeof(struct slot *));
 
 	//  Slots
-	createBoard(boardSize,&upLeft, &upRight, &downLeft, &downRight);
+	createBoard(boardSize,&upLeft, &upRight, &downLeft, &downRight, board);
 
 
 	// Print function - doesn't work. Doesn't recognise board[][]
@@ -53,8 +54,9 @@ int main (void)
 	{
 		for (j = 0; j < boardSize; j++)
 		{
-		//	printf("Row %d Column %d: %s", i, j, board[i][j].Slot_type);
+			printf("Row %d Column %d: Type %d\n", i, j, board[i][j].type);
 		}
+		printf("\n");
 	}
 	// This function prints the attributes for each player
 /*	printf("-------Player Stats-------\n");
