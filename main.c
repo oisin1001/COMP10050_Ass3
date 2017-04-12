@@ -95,6 +95,12 @@ int main (void)
 	// find the closest player, and attack
 	closestPlayer(numberOfPlayers, playerInfo, slotsArray, n1);
 
+
+
+	//check if the player is living
+		void playerdeath(int numberOfPlayers, struct player playerInfo[6]);
+
+
 	// This prints the status at the end of the game
 	/*statusPrint(numberOfPlayers, playerInfo); */
 

@@ -50,6 +50,21 @@ void invalidStatCheck(int numberOfPlayers, struct player playerInfo[6]){
 	}
 }
 
+void playerdeath(int numberOfPlayers, struct player playerInfo[6])
+{
+	enum death { Alive, Dead};
+	enum death d;
+
+	int i;
+	for(i = 0; i < numberOfPlayers; i++)
+	{
+	 if (playerInfo[i].lifePoints <0)
+	  {
+
+	  }
+	}
+}
+
 // This function changes the stats of the player, depending on which slot they move to
 void changeStats(struct slots slotsArray[20], struct player playerInfo[6], int n1)
 {
