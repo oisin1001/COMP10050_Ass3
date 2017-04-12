@@ -53,14 +53,14 @@ void invalidStatCheck(int numberOfPlayers, struct player playerInfo[6]){
 void playerdeath(int numberOfPlayers, struct player playerInfo[6])
 {
 	enum death { Alive, Dead};
-	enum death d;
+	enum death d[numberOfPlayers];
 
 	int i;
 	for(i = 0; i < numberOfPlayers; i++)
 	{
 	 if (playerInfo[i].lifePoints <0)
 	  {
-
+		 d[i]=Dead;
 	  }
 	}
 }
