@@ -52,6 +52,7 @@ int main (void)
 	// Print function - doesn't work. Doesn't recognise board[][]
 	//
 	//
+	printf("This is a test line to check git is syncing properly\n\n\n");
 	for (i = 0; i < boardSize; i++)
 	{
 		for (j = 0; j < boardSize; j++)
