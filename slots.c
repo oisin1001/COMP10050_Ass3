@@ -140,9 +140,10 @@ int slotsAllocation(struct slots slotsArray[20], int numberOfPlayers, int i, str
 	//placing players into slots
 	for(t=0;t<numberOfPlayers;t++)
 	{
-		rndColumn = rand() %7;
+		rndColumn = rand()%7;
 		rndRow = rand() %7;
-		*playerInfo[t].place = board[rndColumn][rndRow];
+		printf("rndColumn is %d, rndRow is %d\n", rndColumn, rndRow);
+		playerInfo[t].place = &board[rndColumn][rndRow];
 	//	strcpy(slotsArray[rnd].player, playerInfo[t].name);
 		// Here the number t replaces -1 -- this lets the program know later that this slot contains a player
 	//	slotsArray[rnd].playerNum = t;

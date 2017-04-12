@@ -63,13 +63,19 @@ int main (void)
 	}
 	// This function prints the attributes for each player
 	printf("-------Player Stats-------\n");
-	printStats(numberOfPlayers, playerInfo);
+	
 
 	// This function allocates the slots, and calls the printSlots function to print the slots
 	n1 = slotsAllocation(slotsArray, numberOfPlayers,i,playerInfo, board);
 
+//	for (i = 0; i < numberOfPlayers; i++)
+//	{
+//		printf("Row %d Column %d: Type %d\n", i, j, board[i][j].type);
 
+//		printf("\n");
+//	}
 	
+	printStats(numberOfPlayers, playerInfo);
 
 	// This lets the user choose to move
 	moveSlots(slotsArray, playerInfo, numberOfPlayers);
