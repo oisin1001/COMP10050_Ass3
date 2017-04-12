@@ -64,7 +64,7 @@ void statsForElf(struct player playerInfo[6], int i);
 void statsForHuman(struct player playerInfo[6], int i);
 void statsForOgre(struct player playerInfo[6], int i);
 void statsForWizard(struct player playerInfo[6], int i);
-int slotsAllocation(struct slots slotsArray[20], int numberOfPlayers, int i,struct player playerInfo[6]);
+int slotsAllocation(struct slots slotsArray[20], int numberOfPlayers, int i,struct player playerInfo[6], struct slot **board);
 void moveSlots(struct slots slotsArray[20], struct player playerInfo[6], int numberOfPlayers);
 void changeStats(struct slots slotsArray[20], struct player playerInfo[6], int n1);
 void closestPlayer(int numberOfPlayers, struct player playerInfo[6], struct slots slotsArray[20], int n1);

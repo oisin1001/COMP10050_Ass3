@@ -134,7 +134,7 @@ void createBoard(int boardSize, struct slot **upLeft, struct slot **upRight, str
 }
 
 // This creates the slots, and places players in each slot
-int slotsAllocation(struct slots slotsArray[20], int numberOfPlayers, int i, struct player playerInfo[6])
+int slotsAllocation(struct slots slotsArray[20], int numberOfPlayers, int i, struct player playerInfo[6], struct slot **board)
 {
 	int rndColumn, rndRow, t;
 	//placing players into slots
@@ -142,7 +142,7 @@ int slotsAllocation(struct slots slotsArray[20], int numberOfPlayers, int i, str
 	{
 		rndColumn = rand() %7;
 		rndRow = rand() %7;
-	//	playerInfo[t].place;
+		*playerInfo[t].place = board[rndColumn][rndRow];
 	//	strcpy(slotsArray[rnd].player, playerInfo[t].name);
 		// Here the number t replaces -1 -- this lets the program know later that this slot contains a player
 	//	slotsArray[rnd].playerNum = t;

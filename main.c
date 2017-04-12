@@ -66,7 +66,7 @@ int main (void)
 	printStats(numberOfPlayers, playerInfo);
 
 	// This function allocates the slots, and calls the printSlots function to print the slots
-//	n1 = slotsAllocation(slotsArray, numberOfPlayers,i,playerInfo);
+	n1 = slotsAllocation(slotsArray, numberOfPlayers,i,playerInfo, board);
 
 
 	
