@@ -39,8 +39,10 @@ int main (void)
 	struct player playerInfo[numberOfPlayers];
 
 	// This functions lets the user select a type and name, and assigns random values for the attributes (using details from the assignment document)
-//	selectType(numberOfPlayers, playerInfo);
-
+	selectType(numberOfPlayers, playerInfo);
+	
+	//The board is represented as a pointer of pointer to slots
+ 	//This allocates in memory the space for the pointers to each row of the board
 	struct slot ** board = malloc(boardSize * sizeof(struct slot *));
 
 	//  Slots
@@ -59,7 +61,7 @@ int main (void)
 		printf("\n");
 	}
 	// This function prints the attributes for each player
-/*	printf("-------Player Stats-------\n");
+	printf("-------Player Stats-------\n");
 	printStats(numberOfPlayers, playerInfo);
 
 	// This function allocates the slots, and calls the printSlots function to print the slots
@@ -87,7 +89,7 @@ int main (void)
 	closestPlayer(numberOfPlayers, playerInfo, slotsArray, n1);
 
 	// This prints the status at the end of the game
-	statusPrint(numberOfPlayers, playerInfo); */
+	/*statusPrint(numberOfPlayers, playerInfo); */
 
 	return 0;
 }

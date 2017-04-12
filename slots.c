@@ -15,11 +15,7 @@
  * 	upLeft: pointer of pointer to slot at position (boardSize - 1, boardSize -1)
  */
 
-void createBoard(int boardSize, struct slot **upLeft, struct slot **upRight, struct slot **downLeft, struct slot **downRight, struct slot **board){
-
-	//The board is represented as a pointer of pointer to slots
-	//This allocates in memory the space for the pointers to each row of the board
-	
+void createBoard(int boardSize, struct slot **upLeft, struct slot **upRight, struct slot **downLeft, struct slot **downRight, struct slot **board){	
 
 	printf("createBoard started\n");
 	for(int i =0; i< boardSize; i++){
@@ -138,76 +134,23 @@ void createBoard(int boardSize, struct slot **upLeft, struct slot **upRight, str
 }
 
 // This creates the slots, and places players in each slot
-/*int slotsAllocation(struct slots slotsArray[20], int numberOfPlayers, int i, struct player playerInfo[6])
+int slotsAllocation(struct slots slotsArray[20], int numberOfPlayers, int i, struct player playerInfo[6])
 {
-	int rnd,n1,t;
-	printf("How many slots would you like to create? Please enter a number between %d and 20\n\n",numberOfPlayers);
-	// allows the user to enter the amount of the slots they want with a max of 20
-	scanf("%d", &n1);
-
-	if(n1<numberOfPlayers)
-	{
-		printf("There must be at least %d slots - one for each player \n\n", numberOfPlayers);
-		printf("Please enter a number between %d and 20\n",numberOfPlayers);
-		// allows user to enter again if they made a mistake the first time and entered an invalid number
-		scanf("%d", &n1);
-	}
-
-	if(n1>20)
-	{
-		//secondary check, less important than the n1<numberOfPlayers check, makes sure the number entered isn't too high
-		printf("Please enter a number between %d and 20\n",numberOfPlayers);
-		scanf("%d", &n1);
-	}
-
-
-	for(i=0;i<n1;i++)//for generating the slots themselves
-	{
-		int j = rand() % 3;// generate a random value 0, 1 or 2, then use this to assign slot type we will use
-		if (j==0)
-		{
-			slotsArray[i].l = i;
-			strcpy(slotsArray[i].Slot_type, "Level Ground");
-		}
-
-		if (j==1)
-		{
-			slotsArray[i].l = i;
-			strcpy(slotsArray[i].Slot_type, "Hill");
-		}
-		if (j==2)
-		{
-			slotsArray[i].l = i;
-			strcpy(slotsArray[i].Slot_type, "City");
-		}
-		//	slotsArray[i].player = "_";
-		strcpy(slotsArray[i].player, "_");
-		// I let the playerNum of every struct in the array equal to -1 -- I'll use this in later when finding the closest player
-		slotsArray[i].playerNum = -1;
-	}
-
-
-
+	int rndColumn, rndRow, t;
 	//placing players into slots
 	for(t=0;t<numberOfPlayers;t++)
 	{
-		rnd = rand() %n1;
-		if(strcmp(slotsArray[rnd].player, "_") == 0)
-		{
-			strcpy(slotsArray[rnd].player, playerInfo[t].name);
-			// Here the number t replaces -1 -- this lets the program know later that this slot contains a player
-			slotsArray[rnd].playerNum = t;
-			playerInfo[t].location = rnd;
-		} else {
-			t--;
-		}
+		rndColumn = rand() %7;
+		rndRow = rand() %7;
+	//	playerInfo[t].place;
+	//	strcpy(slotsArray[rnd].player, playerInfo[t].name);
+		// Here the number t replaces -1 -- this lets the program know later that this slot contains a player
+	//	slotsArray[rnd].playerNum = t;
+	//	playerInfo[t].location = rnd;
+		
 	}
-
-	printSlots(numberOfPlayers, slotsArray, n1);
-
-	// I return the value n1, so I can use the number of slots in other programs
-	return n1;
-}*/
+	return 0;
+}
 
 void printSlots(int numberOfPlayers, struct slots slotsArray[20], int n1)
 {

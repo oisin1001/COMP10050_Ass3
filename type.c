@@ -46,7 +46,7 @@ void statsForElf(struct player playerInfo[6], int i)
 	playerInfo[i].luck = rand() % 41 + 60;
 	playerInfo[i].smartness = rand() % 31 + 70;
 	playerInfo[i].strength = rand() % 51;
-	playerInfo[i].magic = rand() % 28 + 51;
+	playerInfo[i].magic = rand() % 31 + 50;
 	playerInfo[i].dexterity = rand() %101;
 	printf("Enter the player name:\n");
 	scanf("%s", playerInfo[i].name);
@@ -86,7 +86,7 @@ void statsForOgre(struct player playerInfo[6], int i) {
 		combo = playerInfo[i].luck + playerInfo[i].smartness;
 	}
 	playerInfo[i].dexterity = rand() %21 +80;
-	playerInfo[i].strength = rand() % 20 + 80;
+	playerInfo[i].strength = rand() % 21 + 80;
 	playerInfo[i].magic = 0;
 	printf("Enter the player name:\n");
 	scanf("%s", playerInfo[i].name);
@@ -100,7 +100,7 @@ void statsForWizard(struct player playerInfo[6], int i) {
 	strcpy(playerInfo[i].type, "Wizard");
 	playerInfo[i].luck = rand() % 51 + 50;
 	playerInfo[i].smartness = rand() % 11 + 90;
-	playerInfo[i].strength = rand() % 21;
+	playerInfo[i].strength = rand() % 51;
 	playerInfo[i].magic = rand() % 81;
 	playerInfo[i].dexterity = rand() %101;
 	printf("Enter the player name:\n");

@@ -45,6 +45,7 @@ struct player
     int dexterity;//dexterity
 	int location;//location of each player
 	bool canAttack;
+	struct slot *place;
 };
 
 
