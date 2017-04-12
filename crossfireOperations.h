@@ -12,7 +12,7 @@
 
 #endif /* CROSSFIREOPERATIONS_H_ */
 
-enum slotTypes {CITY, HILL, LEVEL_GROUND} slotTypes; // enumeration for the type of slot
+enum slotTypes {LEVEL_GROUND, HILL, CITY} slotTypes; // enumeration for the type of slot
 
 struct slot{
 	//row number
@@ -66,7 +66,7 @@ void statsForOgre(struct player playerInfo[6], int i);
 void statsForWizard(struct player playerInfo[6], int i);
 int slotsAllocation(struct slots slotsArray[20], int numberOfPlayers, int i,struct player playerInfo[6], struct slot **board);
 void moveSlots(struct slots slotsArray[20], struct player playerInfo[6], int numberOfPlayers);
-void changeStats(struct slots slotsArray[20], struct player playerInfo[6], int n1);
+void changeStats(int numberOfPlayers, struct player playerInfo[6]);
 void closestPlayer(int numberOfPlayers, struct player playerInfo[6], struct slots slotsArray[20], int n1);
 void statusPrint(int numberOfPlayers, struct player PlayerInfo[6]);
 void printStats(int numberOfPlayers, struct player playerInfo[6]);

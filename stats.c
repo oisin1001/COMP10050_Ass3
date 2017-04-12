@@ -19,7 +19,7 @@ void printStats(int numberOfPlayers, struct player playerInfo[6])
 		printf("Strength: %d\n", playerInfo[i].strength);
 		printf("Magic: %d\n", playerInfo[i].magic);
 		printf("Dexterity: %d\n", playerInfo[i].dexterity);
-		printf("Location: (%d, %d)\n", playerInfo[i].place->row, playerInfo[i].place->column);
+		printf("Location: (%d, %d)\n\n", playerInfo[i].place->row, playerInfo[i].place->column);
 	}
 	return;
 }
@@ -66,7 +66,7 @@ void playerdeath(int numberOfPlayers, struct player playerInfo[6])
 }
 
 // This function changes the stats of the player, depending on which slot they move to
-void changeStats(struct slots slotsArray[20], struct player playerInfo[6], int n1)
+/*void changeStats(struct slots slotsArray[20], struct player playerInfo[6], int n1)
 {
 	int  j, HoldForStats;
 	for(j=0;j<n1;j++)//counts through all slots
@@ -102,6 +102,40 @@ void changeStats(struct slots slotsArray[20], struct player playerInfo[6], int n
 				}
 
 			}
+		}
+	}
+	return;
+}*/
+
+void changeStats(int numberOfPlayers, struct player playerInfo[6])
+{
+	int i;
+	for(i = 0; i < numberOfPlayers; i++)//counts through all players
+	{
+		if(playerInfo[i].place->type == HILL)
+		{
+			if(playerInfo[i].dexterity <50)
+			{
+				playerInfo[i].strength = playerInfo[i].strength -10;
+			}
+			if(playerInfo[i].dexterity >=60)
+			{
+				playerInfo[i].strength = playerInfo[i].strength +10;
+			}
+			printf("Hill buff enabled for player %d\n", i+1);
+		}
+		if(playerInfo[i].place->type == CITY)
+		{
+			if(playerInfo[i].smartness <=50)
+			{
+				playerInfo[i].dexterity = playerInfo[i].dexterity -10;
+			}
+
+			if(playerInfo[i].smartness >60)
+			{
+				playerInfo[i].magic = playerInfo[i].magic +10;
+			}
+			printf("City buff enabled for player %d\n", i+1);
 		}
 	}
 	return;
