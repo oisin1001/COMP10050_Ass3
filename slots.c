@@ -184,7 +184,7 @@ void printSlots(int numberOfPlayers, struct slots slotsArray[20], int n1)
 }
 
 // This lets the user move from one slot to another if they wish
-void moveSlots(struct slots slotsArray[20], struct player playerInfo[6], int numberOfPlayers)
+/*void moveSlots(struct slots slotsArray[20], struct player playerInfo[6], int numberOfPlayers)
 {
 	int locationAsInt, C1, C2, pl;
 	// We use booleans to check if a player is allowed to move forwards or backwards
@@ -292,5 +292,72 @@ void moveSlots(struct slots slotsArray[20], struct player playerInfo[6], int num
 			playerInfo[pl].canAttack = true;
 		}
 	}
+	return;
+}*/
+
+void moveSlots(struct slot **board, struct player playerInfo[6], int numberOfPlayers)
+{
+	bool canMoveUp = true, canMoveDown = true, canMoveLeft = true, canMoveRight = true, validMove;
+	int i, column, row, select, slotSelect;
+
+	for (i = 0; i < numberOfPlayers; i++)
+	{
+		printf("Do you want to move? Type 1 to move to an adjacent slot. Type 2 to stay in your current position.\n");
+		scanf("%d", &select);
+
+		if (select == 1)
+		{
+			row = playerInfo[i].place->row;
+			column = playerInfo[i].place->column;
+
+			if (row == 0 && column == 0) {
+				canMoveUp = false;
+				canMoveLeft = false;
+			} else if (row == 0 && column == 6) {
+				canMoveUp = false;
+				canMoveRight = false;
+			} else if (row == 6 && column == 0) {
+				canMoveDown = false;
+				canMoveLeft = false;
+			} else if (row == 6 && column == 6) {
+				canMoveDown = false;
+				canMoveRight = false;
+			} else if (row == 0) {
+				canMoveUp = false;
+			} else if (row == 6) {
+				canMoveDown = false;
+			} else if (column == 0) {
+				canMoveLeft = false;
+			} else if (column == 6) {
+				canMoveRight = false;
+			}
+			validMove = false;
+			while(validMove == false)
+			{
+				printf("Type 1 to move up. Type 2 to move right. Type 3 to move down. Type 4 to move left.\n");
+				scanf("%d", &slotSelect);
+				if(slotSelect == 1 && canMoveUp == true)
+				{
+					playerInfo[i].place = playerInfo[i].place->up;
+					validMove = true;
+				} else if(slotSelect == 2 && canMoveRight == true)
+				{
+					playerInfo[i].place = playerInfo[i].place->right;
+					validMove = true;
+				} else if(slotSelect == 3 && canMoveDown == true)
+				{
+					playerInfo[i].place = playerInfo[i].place->down;
+					validMove = true;
+				} else if(slotSelect == 4 && canMoveLeft == true)
+				{
+					playerInfo[i].place = playerInfo[i].place->left;
+					validMove = true;
+				} else {
+					printf("You cannot move in that direction. Please try again.\n");
+				}
+			}
+		}
+	}
+
 	return;
 }

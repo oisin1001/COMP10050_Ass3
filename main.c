@@ -66,7 +66,7 @@ int main (void)
 	
 
 	// This function allocates the slots, and calls the printSlots function to print the slots
-	n1 = slotsAllocation(slotsArray, numberOfPlayers,i,playerInfo, board);
+	slotsAllocation(slotsArray, numberOfPlayers,i,playerInfo, board);
 
 //	for (i = 0; i < numberOfPlayers; i++)
 //	{
@@ -77,18 +77,19 @@ int main (void)
 	
 	printStats(numberOfPlayers, playerInfo);
 
-	//changes player stats based on where they move
-	changeStats(numberOfPlayers, playerInfo);
+
 
 	// This lets the user choose to move
-	moveSlots(slotsArray, playerInfo, numberOfPlayers);
+	moveSlots(board, playerInfo, numberOfPlayers);
 
+	//changes player stats based on where they move
+	changeStats(numberOfPlayers, playerInfo);
 
 	// This corrects these change stats, not letting values go below 0 and above 100
 	invalidStatCheck(numberOfPlayers, playerInfo);
 
-	// This prints the slots, after players have moved
-	printSlots(numberOfPlayers, slotsArray, n1);
+//	// This prints the slots, after players have moved
+//	printSlots(numberOfPlayers, slotsArray, n1);
 
 	// This prints the adjusted stats
 	printf("-------Player Stats after moving-------\n");

@@ -65,48 +65,6 @@ void playerdeath(int numberOfPlayers, struct player playerInfo[6])
 	}
 }
 
-// This function changes the stats of the player, depending on which slot they move to
-/*void changeStats(struct slots slotsArray[20], struct player playerInfo[6], int n1)
-{
-	int  j, HoldForStats;
-	for(j=0;j<n1;j++)//counts through all slots
-	{
-		if(slotsArray[j].playerNum+1 != 0)//if a player is found in a slot, proceed
-		{
-			if(strcmp(slotsArray[j].Slot_type, "Hill") ==0)// if the slot is hills then do check , if not keep going
-			{
-				HoldForStats=slotsArray[j].playerNum;//Not sure if the slotsArray[j].playerNum works , but it is meant to read the player number that is in that slot and change only their stats
-				if(playerInfo[HoldForStats].dexterity <50)
-				{
-					playerInfo[HoldForStats].strength = playerInfo[HoldForStats].strength -10;
-				}
-				if(playerInfo[HoldForStats].dexterity >=60)
-				{
-					playerInfo[HoldForStats].strength = playerInfo[HoldForStats].strength +10;
-				}
-
-			}
-
-
-			if(strcmp(slotsArray[j].Slot_type, "City") ==0)//if slot is city then do check, if not loop and increment
-			{
-				HoldForStats=slotsArray[j].playerNum;
-				if(playerInfo[HoldForStats].smartness <=50)
-				{
-					playerInfo[HoldForStats].dexterity = playerInfo[HoldForStats].dexterity -10;
-				}
-
-				if(playerInfo[HoldForStats].smartness >60)
-				{
-					playerInfo[HoldForStats].magic = playerInfo[HoldForStats].magic +10;
-				}
-
-			}
-		}
-	}
-	return;
-}*/
-
 void changeStats(int numberOfPlayers, struct player playerInfo[6])
 {
 	int i;
