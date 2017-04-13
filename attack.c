@@ -7,7 +7,7 @@
 
 
 // This function finds the closest player to the current player, and lets them attack that player
-void closestPlayer(int numberOfPlayers, struct player playerInfo[6], struct slots slotsArray[20], int n1)
+/*void closestPlayer(int numberOfPlayers, struct player playerInfo[6], struct slots slotsArray[20], int n1)
 {
 	int i;
 	// This boolean lets me check if I've already found the attacker. This saves processing time, as unnecessary lines of code are not used depending on the circumstances
@@ -102,6 +102,19 @@ void closestPlayer(int numberOfPlayers, struct player playerInfo[6], struct slot
 		printf("Player %d: you have moved slot, so you cannot attack\n", i+1);
 	}
 	}
+	return;
+}*/
+
+void nearAttack(struct player playerInfo[6])
+{
+	
+}
+
+
+void findSlots(int reqDist, int currDist, struct slot * currSlot, struct slot * foundSlots, int * count, bool explored[7][7])
+{
+
+	
 	return;
 }
 

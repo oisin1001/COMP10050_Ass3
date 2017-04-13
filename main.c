@@ -19,7 +19,7 @@ int main (void)
 
 	// This line is needed to ensure values are truly random
 	srand(time(NULL));
-	int i, j, numberOfPlayers = 0, n1, row, column, boardSize = 7;
+	int i, j, numberOfPlayers = 0, n1, row, column, boardSize = 7, attackChoice;
 
 	//pointer to slot (0,0)
 	struct slot *upLeft;
@@ -96,9 +96,22 @@ int main (void)
 	printStats(numberOfPlayers, playerInfo);
 
 	// find the closest player, and attack
-	closestPlayer(numberOfPlayers, playerInfo, slotsArray, n1);
+	//closestPlayer(numberOfPlayers, playerInfo, slotsArray, n1);
+	for(i = 0; i < numberOfPlayers; i++)
+	{
+		attackChoice = 0;
+		printf("Player %d:\n", i+1);
+		while(attackChoice < 1 || attackChoice > 3)
+		{
+			printf("Select an attack type.\nType 1 for a near attack. Type 2 for a distant attack. Type 3 for a magic attack.\n");
+			scanf("%d", &attackChoice);
+		}
 
-
+		if (attackChoice == 1)
+		{
+			nearAttack(playerInfo);
+		}
+	}
 
 	//check if the player is living
 		void playerdeath(int numberOfPlayers, struct player playerInfo[6]);
