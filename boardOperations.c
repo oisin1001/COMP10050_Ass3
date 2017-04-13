@@ -48,9 +48,6 @@ void reachDesiredElement(int row, int column, struct slot * initialSlot){
 			//the current slot now points to the slot one row down
 			currentSlot = currentSlot->down;
 
-
-
-
 			//prints the row and the column of the current slot
 			printf("Current slot (%d, %d) -> \n",currentSlot->row,currentSlot->column);
 

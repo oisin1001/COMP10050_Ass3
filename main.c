@@ -110,6 +110,18 @@ int main (void)
 		if (attackChoice == 1)
 		{
 			nearAttack(playerInfo);
+		} else if (attackChoice == 2)
+		{
+
+		} else if (attackChoice == 3)
+		{
+			if (playerInfo[i].smartness + playerInfo[i].magic < 150)
+			{
+				magicAttack(playerInfo, numberOfPlayers, i);
+			} else {
+				printf("You cannot do a magic attack. Please select another attack type.\n");
+				i--;
+			}
 		}
 	}
 

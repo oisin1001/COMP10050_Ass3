@@ -107,15 +107,38 @@
 
 void nearAttack(struct player playerInfo[6])
 {
-	
+
+	return;
 }
 
 
 void findSlots(int reqDist, int currDist, struct slot * currSlot, struct slot * foundSlots, int * count, bool explored[7][7])
 {
+	if(currDist == reqDist){
+		if(explored[currSlot->row][currSlot->column] == false){
+			*(foundSlots + *count) = *currSlot;
+			(*count)++;
+			explored[currSlot->row][currSlot->column] = true;
+		}
+	}
 
-	
 	return;
+}
+
+void magicAttack(struct player playerInfo[6], int numberOfPlayers, int currentPlayer)
+{
+	int i, attackedPlayer;
+	for (i = 0; i < numberOfPlayers; i++)
+	{
+		if (i != currentPlayer)
+		{
+			printf("Type %d to attack player %d\n", i+1, i+1);
+		}
+	}
+	scanf("%d", &attackedPlayer);
+	attackedPlayer--;
+	playerInfo[attackedPlayer].lifePoints = (0.5 * playerInfo[currentPlayer].magic) + (0.2 * playerInfo[currentPlayer].smartness);
+//	((0.5 * Magic Skills of attacker player) + (0.2 * Smartness of attacker player))
 }
 
 // This prints the status of each player at the end of the game

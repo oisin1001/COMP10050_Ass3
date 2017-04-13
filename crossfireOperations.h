@@ -81,6 +81,7 @@ void invalidStatCheck(int numberOfPlayers, struct player playerInfo[6]);
 void createBoard(int boardSize, struct slot **upLeft, struct slot **upRight, struct slot **downLeft, struct slot **downRight, struct slot **board);
 void nearAttack(struct player playerInfo[6]);
 void findSlots(int reqDist, int currDist, struct slot * currSlot, struct slot * foundSlots, int * count, bool explored[7][7]);
+void magicAttack(struct player playerInfo[6], int numberOfPlayers, int currentPlayer);
 
 /*
  * Functions getBoardSize and getDesiredElement
