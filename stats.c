@@ -52,16 +52,34 @@ void invalidStatCheck(int numberOfPlayers, struct player playerInfo[6]){
 
 void playerdeath(int numberOfPlayers, struct player playerInfo[6])
 {
-	enum death { Alive, Dead};
-	enum death d[numberOfPlayers];
 
 	int i;
 	for(i = 0; i < numberOfPlayers; i++)
 	{
-	 if (playerInfo[i].lifePoints <0)
+	 if (playerInfo[i].lifePoints <=0)
 	  {
 		 d[i]=Dead;
 	  }
+	}
+}
+
+void allalive(int numberOfPlayers, struct player playerInfo[6])
+{
+	int i,t=0;
+	for(i = 0; i < numberOfPlayers; i++)
+		{
+		 if(d[i]==Dead)
+		  {
+			t=t+1;
+		  }
+		}
+	if(t==(numberOfPlayers-1))
+	{
+		glados[1]=GG;
+	}
+	else
+	{
+		t=0;//reset it to 0 to make sure that it doesn't double count people across turns
 	}
 }
 

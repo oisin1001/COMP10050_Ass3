@@ -30,6 +30,12 @@ int main (void)
 	//pointer to slot (boardSize - 1, boardSize -1)
 	struct slot *downRight;
 
+	//declare all players alive
+	for(i=0;i<numberOfPlayers;i++)
+	{
+		d[i]=Alive;
+	}
+
 	while (numberOfPlayers < 2 || numberOfPlayers > 6)
 	{
 		//Here the user enters the number of players in the game
@@ -52,7 +58,7 @@ int main (void)
 	// Print function - doesn't work. Doesn't recognise board[][]
 	//
 	//
-	printf("This is a test line to check git is syncing properly\n\n\n");
+
 	for (i = 0; i < boardSize; i++)
 	{
 		for (j = 0; j < boardSize; j++)
@@ -78,7 +84,8 @@ int main (void)
 	printStats(numberOfPlayers, playerInfo);
 
 
-
+while(glados[1]==GG)//while there are at least 2 players still alive keep playing
+{
 	// This lets the user choose to move
 	moveSlots(board, playerInfo, numberOfPlayers);
 
@@ -99,6 +106,8 @@ int main (void)
 	//closestPlayer(numberOfPlayers, playerInfo, slotsArray, n1);
 	for(i = 0; i < numberOfPlayers; i++)
 	{
+	  if(d[i]==Alive)//checks if the player is alive before it allows them to attack
+	  {
 		attackChoice = 0;
 		printf("Player %d:\n", i+1);
 		while(attackChoice < 1 || attackChoice > 3)
@@ -123,10 +132,17 @@ int main (void)
 				i--;
 			}
 		}
+	   }
 	}
+
 
 	//check if the player is living
 		void playerdeath(int numberOfPlayers, struct player playerInfo[6]);
+
+		void allalive(int numberOfPlayers, struct player playerInfo[6]);
+
+}
+		//end loop here for letting multiple moves in the game
 
 
 	// This prints the status at the end of the game

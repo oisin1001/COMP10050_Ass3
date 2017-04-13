@@ -13,6 +13,10 @@
 #endif /* CROSSFIREOPERATIONS_H_ */
 
 enum slotTypes {LEVEL_GROUND, HILL, CITY} slotTypes; // enumeration for the type of slot
+enum death { Alive, Dead};
+enum death d[6];
+enum still_alive {OK, GG};//use this to see if all players are alive
+enum still_alive glados[1];
 
 struct slot{
 	//row number
