@@ -107,10 +107,29 @@
 
 void nearAttack(struct player playerInfo[6])
 {
-
+	//not much here yet
 	return;
 }
-
+void distantAttack(struct player playerInfo[6])
+{
+	//nothing here ethier
+	return;
+}
+void magicAttack(struct player playerInfo[6], int numberOfPlayers, int currentPlayer)
+{
+	int i, attackedPlayer;
+	for (i = 0; i < numberOfPlayers; i++)
+	{
+		if (i != currentPlayer)
+		{
+			printf("Type %d to attack player %d\n", i+1, i+1);
+		}
+	}
+	scanf("%d", &attackedPlayer);
+	attackedPlayer--;
+	playerInfo[attackedPlayer].lifePoints = (0.5 * playerInfo[currentPlayer].magic) + (0.2 * playerInfo[currentPlayer].smartness);
+//	((0.5 * Magic Skills of attacker player) + (0.2 * Smartness of attacker player))
+}
 
 /*
  * The recursive function that traverses the board to find the slots at a predefined
@@ -168,21 +187,7 @@ void findSlots(int reqDist, int currDist,  struct slot * currSlot, struct slot *
 }
 
 
-void magicAttack(struct player playerInfo[6], int numberOfPlayers, int currentPlayer)
-{
-	int i, attackedPlayer;
-	for (i = 0; i < numberOfPlayers; i++)
-	{
-		if (i != currentPlayer)
-		{
-			printf("Type %d to attack player %d\n", i+1, i+1);
-		}
-	}
-	scanf("%d", &attackedPlayer);
-	attackedPlayer--;
-	playerInfo[attackedPlayer].lifePoints = (0.5 * playerInfo[currentPlayer].magic) + (0.2 * playerInfo[currentPlayer].smartness);
-//	((0.5 * Magic Skills of attacker player) + (0.2 * Smartness of attacker player))
-}
+
 
 // This prints the status of each player at the end of the game
 void statusPrint(int numberOfPlayers, struct player playerInfo[6])

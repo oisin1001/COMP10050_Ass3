@@ -36,6 +36,8 @@ int main (void)
 		d[i]=Alive;
 	}
 
+	glados[1]=OK;//make sure still alive glados is initially set to OK so that the game runs
+
 	while (numberOfPlayers < 2 || numberOfPlayers > 6)
 	{
 		//Here the user enters the number of players in the game
@@ -84,7 +86,7 @@ int main (void)
 	printStats(numberOfPlayers, playerInfo);
 
 
-while(glados[1]==GG)//while there are at least 2 players still alive keep playing
+while(glados[1]==OK)//while there are at least 2 players still alive keep playing
 {
 	// This lets the user choose to move
 	moveSlots(board, playerInfo, numberOfPlayers);
@@ -121,7 +123,7 @@ while(glados[1]==GG)//while there are at least 2 players still alive keep playin
 			nearAttack(playerInfo);
 		} else if (attackChoice == 2)
 		{
-
+			distantAttack(playerInfo);
 		} else if (attackChoice == 3)
 		{
 			if (playerInfo[i].smartness + playerInfo[i].magic < 150)
