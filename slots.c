@@ -188,8 +188,11 @@ void moveSlots(struct slot **board, struct player playerInfo[6], int numberOfPla
 	bool canMoveUp = true, canMoveDown = true, canMoveLeft = true, canMoveRight = true, validMove;
 	int i, column, row, select, slotSelect;
 
+
 	for (i = 0; i < numberOfPlayers; i++)
 	{
+		if(d[i]==Alive)//make sure their allive
+		{
 		printf("Do you want to move? Type 1 to move to an adjacent slot. Type 2 to stay in your current position.\n");
 		scanf("%d", &select);
 
@@ -246,7 +249,7 @@ void moveSlots(struct slot **board, struct player playerInfo[6], int numberOfPla
 			}
 		}
 	}
-
+	  }
 	return;
 }
 

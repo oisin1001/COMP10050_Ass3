@@ -31,11 +31,11 @@ void quitgame(struct player playerInfo[6], int currentplayer, int numberOfPlayer
 			}
 		if(l==1)
 			{
-			d[currentplayer]=Dead;
+			d[currentplayer]=Dead;//take player out of game
 			}
 		else if(l==2)
 			{
-
+			return;//nothing needs to be done
 			}
 		}
 
