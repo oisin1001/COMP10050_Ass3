@@ -98,10 +98,10 @@ void statsForOgre(struct player playerInfo[6], int i) {
 
 void statsForWizard(struct player playerInfo[6], int i) {
 	strcpy(playerInfo[i].type, "Wizard");
-	playerInfo[i].luck = rand() % 51 + 50;
-	playerInfo[i].smartness = rand() % 11 + 90;
-	playerInfo[i].strength = rand() % 51;
-	playerInfo[i].magic = rand() % 81;
+	playerInfo[i].luck = rand() %51 + 50;
+	playerInfo[i].smartness = rand() %11 + 90;
+	playerInfo[i].strength = rand() %51;
+	playerInfo[i].magic = rand() %81;
 	playerInfo[i].dexterity = rand() %101;
 	printf("Enter the player name:\n");
 	scanf("%s", playerInfo[i].name);

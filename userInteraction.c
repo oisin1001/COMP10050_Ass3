@@ -19,6 +19,28 @@ int getBoardSize(){
 	return boardSize;
 }
 
+void quitgame(struct player playerInfo[6], int currentplayer, int numberOfPlayers)
+{
+	int l;
+	for(currentplayer = 0; currentplayer < numberOfPlayers; currentplayer++)
+		{
+		if(d[currentplayer]==Alive)
+			{
+				printf("player %d if you wish to quit the game enter 1, enter 2 to continue playing\n ",currentplayer);
+				scanf("%d",&l);
+			}
+		if(l==1)
+			{
+			d[currentplayer]=Dead;
+			}
+		else if(l==2)
+			{
+
+			}
+		}
+
+	return;
+}
 //THis function takes as input the size of the board and the pointers
 // to the integers representing the row and the column of the slot that
 // the user want to retrieve

@@ -91,6 +91,8 @@ while(glados[1]==OK)//while there are at least 2 players still alive keep playin
 	// This lets the user choose to move
 	moveSlots(board, playerInfo, numberOfPlayers);
 
+	quitgame(playerInfo, i,numberOfPlayers);
+
 	//changes player stats based on where they move
 	changeStats(numberOfPlayers, playerInfo);
 
@@ -126,7 +128,7 @@ while(glados[1]==OK)//while there are at least 2 players still alive keep playin
 			distantAttack(playerInfo);
 		} else if (attackChoice == 3)
 		{
-			if (playerInfo[i].smartness + playerInfo[i].magic < 150)
+			if (playerInfo[i].smartness + playerInfo[i].magic > 150)
 			{
 				magicAttack(playerInfo, numberOfPlayers, i);
 			} else {
@@ -137,10 +139,10 @@ while(glados[1]==OK)//while there are at least 2 players still alive keep playin
 	   }
 	}
 
-
+	i=0; //reset i so on next turn player
 	//check if the player is living
 		void playerdeath(int numberOfPlayers, struct player playerInfo[6]);
-
+		//check if everyones still alive
 		void allalive(int numberOfPlayers, struct player playerInfo[6]);
 
 }
