@@ -65,8 +65,20 @@ int main (void)
 	{
 		for (j = 0; j < boardSize; j++)
 		{
-			printf("Row %d Column %d: Type %d\n", i, j, board[i][j].type);
+			if(board[i][j].type==0)
+			            {
+			            printf("  _LvlGrd_  ");
+			            }
+			if(board[i][j].type==1)
+			            {
+			            printf("   _Hill_   ");
+			            }
+			if(board[i][j].type==2)
+			            {
+			            printf("   _City_   ");
+			            }
 		}
+
 		printf("\n");
 	}
 	// This function prints the attributes for each player
