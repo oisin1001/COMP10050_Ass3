@@ -28,21 +28,6 @@ void createBoard(int boardSize, struct slot **upLeft, struct slot **upRight, str
 			board[i][j].column = j;
 			int k = rand() % 3;// generate a random value 0, 1 or 2, then use this to assign slot type we will use
 			board[i][j].type = k;
-		/*	if (j==0)
-			{
-				strcpy(board[i][j].Slot_type, "Level Ground");
-			}
-
-			if (j==1)
-			{
-				strcpy(board[i][j].Slot_type, "Hill");
-			}
-			if (j==2)
-			{
-				strcpy(board[i][j].Slot_type, "City");
-			}*/
-		//	printf("%s, ", board[i][j].Slot_type);
-			//	slotsArray[i].player = "_";
 			// I let the playerNum of every struct in the array equal to -1 -- I'll use this in later when finding the closest player
 		}
 		printf("\n");
@@ -200,6 +185,7 @@ void moveSlots(struct slot **board, struct player playerInfo[6], int numberOfPla
 				row = playerInfo[i].place->row;
 				column = playerInfo[i].place->column;
 
+				// Checks when the player can move into a slot
 				if (row == 0 && column == 0) {
 					canMoveUp = false;
 					canMoveLeft = false;
@@ -226,6 +212,7 @@ void moveSlots(struct slot **board, struct player playerInfo[6], int numberOfPla
 				{
 					printf("Type 1 to move up. Type 2 to move right. Type 3 to move down. Type 4 to move left.\n");
 					scanf("%d", &slotSelect);
+					// Changes the player location depending on the input
 					if(slotSelect == 1 && canMoveUp == true)
 					{
 						playerInfo[i].place = playerInfo[i].place->up;

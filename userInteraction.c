@@ -19,6 +19,8 @@ int getBoardSize(){
 	return boardSize;
 }
 
+
+// Lets user quit the game
 void quitgame(struct player playerInfo[6], int currentplayer, int numberOfPlayers)
 {
 	int l;
@@ -38,7 +40,7 @@ void quitgame(struct player playerInfo[6], int currentplayer, int numberOfPlayer
 
 	return;
 }
-//THis function takes as input the size of the board and the pointers
+//This function takes as input the size of the board and the pointers
 // to the integers representing the row and the column of the slot that
 // the user want to retrieve
 void getDesiredElement(int boardSize, int * row, int * col){

@@ -191,7 +191,7 @@ while(glados[1]==OK)//while there are at least 2 players still alive keep playin
 
 
 	// This prints the status at the end of the game
-	/*statusPrint(numberOfPlayers, playerInfo); */
+	statusPrint(numberOfPlayers, playerInfo); 
 
 	return 0;
 }
