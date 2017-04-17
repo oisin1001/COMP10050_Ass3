@@ -21,6 +21,23 @@ int main (void)
 	srand(time(NULL));
 	int i, j, numberOfPlayers = 0, n1, row, column, boardSize = 7, attackChoice;
 
+	bool foundDistance[6][6];
+	int distanceArray[6][6];
+
+	for(i = 0; i < 6; i++)
+	{
+		for(j = 0; j < 6; j++)
+		{
+			if(i < numberOfPlayers && j < numberOfPlayers)
+			{
+				distanceArray[i][j] = -1;
+				foundDistance[i][j] = false;
+			} else {
+				distanceArray[i][j] = -2;
+			}
+		}
+	}
+
 	//pointer to slot (0,0)
 	struct slot *upLeft;
 	//pointer to slot (0,boardSize -1)
@@ -66,19 +83,18 @@ int main (void)
 		for (j = 0; j < boardSize; j++)
 		{
 			if(board[i][j].type==0)
-			            {
-			            printf("  _LvlGrd_  ");
-			            }
-			if(board[i][j].type==1)
-			            {
-			            printf("   _Hill_   ");
-			            }
-			if(board[i][j].type==2)
-			            {
-			            printf("   _City_   ");
-			            }
+                        {
+                        printf("  _LvlGrd_  ");
+                        }
+            if(board[i][j].type==1)
+                        {
+                        printf("   _Hill_   ");
+                        }
+            if(board[i][j].type==2)
+                        {
+                        printf("   _City_   ");
+                        }
 		}
-
 		printf("\n");
 	}
 	// This function prints the attributes for each player
@@ -96,6 +112,7 @@ int main (void)
 //	}
 	
 	printStats(numberOfPlayers, playerInfo);
+
 
 
 while(glados[1]==OK)//while there are at least 2 players still alive keep playing
@@ -118,6 +135,26 @@ while(glados[1]==OK)//while there are at least 2 players still alive keep playin
 	printf("-------Player Stats after moving-------\n");
 	printStats(numberOfPlayers, playerInfo);
 
+	printf("\n\nstart of findDistance\n");
+	for(i = 0; i < numberOfPlayers; i++)
+	{
+		for(j=0; j < numberOfPlayers; j++)
+		{
+			findDistance(playerInfo[i].place->row, playerInfo[i].place->column, playerInfo[j].place->row, playerInfo[j].place->column, distanceArray, foundDistance, i, j);
+		}
+	}
+	printf("\nEND\n");
+		printf("\n\nstart of findDistance\n");
+	for(i = 0; i < numberOfPlayers; i++)
+	{
+		for(j=0; j < numberOfPlayers; j++)
+		{
+			printf("%d \n", distanceArray[i][j]);
+		}
+		printf("\n");
+	}
+
+
 	// find the closest player, and attack
 	//closestPlayer(numberOfPlayers, playerInfo, slotsArray, n1);
 	for(i = 0; i < numberOfPlayers; i++)
@@ -134,10 +171,10 @@ while(glados[1]==OK)//while there are at least 2 players still alive keep playin
 
 		if (attackChoice == 1)
 		{
-			nearAttack(playerInfo);
+			nearAttack(playerInfo, distanceArray, i, numberOfPlayers);
 		} else if (attackChoice == 2)
 		{
-			distantAttack(playerInfo);
+			distantAttack(playerInfo, distanceArray, i, numberOfPlayers);
 		} else if (attackChoice == 3)
 		{
 			if (playerInfo[i].smartness + playerInfo[i].magic > 150)

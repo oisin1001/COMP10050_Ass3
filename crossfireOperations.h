@@ -83,11 +83,14 @@ void invalidStatCheck(int numberOfPlayers, struct player playerInfo[6]);
 // NEW FUNCTIONS
 
 void createBoard(int boardSize, struct slot **upLeft, struct slot **upRight, struct slot **downLeft, struct slot **downRight, struct slot **board);
-void nearAttack(struct player playerInfo[6]);
-void distantAttack(struct player playerInfo[6]);
+void nearAttack(struct player playerInfo[6], int distanceArray[6][6], int attacker, int numberOfPlayers);
+void distantAttack(struct player playerInfo[6], int distanceArray[6][6], int attacker, int numberOfPlayers);
 void findSlots(int reqDist, int currDist,  struct slot * currSlot, struct slot * foundSlots, int * count,  bool explored[7][7]);
 void magicAttack(struct player playerInfo[6], int numberOfPlayers, int currentPlayer);
 void quitgame(struct player playerInfo[6], int i,int numberOfPlayers);
+void findDistance(int rowA, int columnA, int rowB, int columnB, int distanceArray[6][6], bool foundDistance[6][6], int player1, int player2);
+// void findDistance(int rowA, int columnA, int rowB, int columnB, bool foundDistance[6][6], int distanceArray[6][6]){
+
 
 /*
  * Functions getBoardSize and getDesiredElement
