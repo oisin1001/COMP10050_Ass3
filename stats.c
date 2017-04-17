@@ -19,7 +19,8 @@ void printStats(int numberOfPlayers, struct player playerInfo[6])
 		printf("Strength: %d\n", playerInfo[i].strength);
 		printf("Magic: %d\n", playerInfo[i].magic);
 		printf("Dexterity: %d\n", playerInfo[i].dexterity);
-		printf("Location: (%d, %d)\n\n", playerInfo[i].place->row, playerInfo[i].place->column);
+		printf("Location: (%d, %d)\n", playerInfo[i].place->row, playerInfo[i].place->column);
+		printf("Life Points: %d \n\n", playerInfo[i].lifePoints);
 	}
 	return;
 }

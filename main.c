@@ -137,23 +137,12 @@ while(glados[1]==OK)//while there are at least 2 players still alive keep playin
 	printf("-------Player Stats after moving-------\n");
 	printStats(numberOfPlayers, playerInfo);
 
-	printf("\n\nstart of findDistance\n");
 	for(i = 0; i < numberOfPlayers; i++)
 	{
 		for(j=0; j < numberOfPlayers; j++)
 		{
 			findDistance(playerInfo[i].place->row, playerInfo[i].place->column, playerInfo[j].place->row, playerInfo[j].place->column, distanceArray, foundDistance, i, j);
 		}
-	}
-	printf("\nEND\n");
-		printf("\n\nstart of findDistance\n");
-	for(i = 0; i < numberOfPlayers; i++)
-	{
-		for(j=0; j < numberOfPlayers; j++)
-		{
-			printf("%d \n", distanceArray[i][j]);
-		}
-		printf("\n");
 	}
 
 
