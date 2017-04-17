@@ -7,8 +7,8 @@
 
 void nearAttack(struct player playerInfo[6], int distanceArray[6][6], int attacker, int numberOfPlayers)
 {
-	
 	int attacked, i, selectedAttack, attackedSelected;
+	bool attackAvailable = false;
 
 	for(i = 0; i < numberOfPlayers; i++)
 	{
@@ -18,6 +18,59 @@ void nearAttack(struct player playerInfo[6], int distanceArray[6][6], int attack
 	for (attacked = 0; attacked < numberOfPlayers; attacked++)
 	{
 		if (attacked != attacker && (distanceArray[attacker][attacked] == 0 || distanceArray[attacker][attacked] == 1))
+		{
+			playerInfo[attacked].canAttack = true;
+		}
+	}
+
+	printf("Select a player to attack:\n");
+	for(i = 0; i < numberOfPlayers; i++)
+	{
+		if(playerInfo[i].canAttack == true)
+		{
+			printf("Type %d to attack player %d", i+1, i+1);
+			attackAvailable = true;
+		}
+	}
+	scanf("%d", &attackedSelected);
+
+
+	while (attackAvailable != true) {
+		printf("Select a player to attack:\n");
+		for(i = 0; i < numberOfPlayers; i++)
+		{
+			if(playerInfo[i].canAttack == true)
+			{
+				printf("Type %d to attack player %d", i+1, i+1);
+				attackAvailable = true;
+			}
+		}
+		scanf("%d", &attackedSelected);
+	}
+
+	if (playerInfo[attackedSelected].strength <= 70)
+	{
+		playerInfo[attackedSelected].lifePoints = playerInfo[attackedSelected].lifePoints - (0.5 * playerInfo[attacker].strength);
+	} else {
+		playerInfo[attacker].lifePoints = playerInfo[attacker].lifePoints - (0.3 * playerInfo[attackedSelected].strength);
+	}
+
+	return;
+}
+void distantAttack(struct player playerInfo[6], int distanceArray[6][6], int attacker, int numberOfPlayers)
+{
+	int attacked, i, selectedAttack, attackedSelected;
+	bool attackAvailable = false;
+
+
+	for(i = 0; i < numberOfPlayers; i++)
+	{
+		playerInfo[i].canAttack = false;
+	}
+
+	for (attacked = 0; attacked < numberOfPlayers; attacked++)
+	{
+		if (attacked != attacker && (distanceArray[attacker][attacked] == 2 || distanceArray[attacker][attacked] == 3 || distanceArray[attacker][attacked] == 4))
 		{
 			playerInfo[attacked].canAttack = true;
 		}
@@ -46,19 +99,12 @@ void nearAttack(struct player playerInfo[6], int distanceArray[6][6], int attack
 		scanf("%d", &attackedSelected);
 	}
 
-	if (playerInfo[attackedSelected].strength <= 70)
+	if (playerInfo[attacker].dexterity > playerInfo[attackedSelected].dexterity)
 	{
-		playerInfo[attackedSelected].lifePoints = playerInfo[attackedSelected].lifePoints - (0.5 * playerInfo[attacker].strength);
-	} else {
-		playerInfo[attacker].lifePoints = playerInfo[attacker].lifePoints - (0.3 * playerInfo[attackedSelected].strength);
-	}
-	//nothing here ethier
-	return;
-	return;
-}
-void distantAttack(struct player playerInfo[6], int distanceArray[6][6], int attacker, int numberOfPlayers)
-{
+		playerInfo[attackedSelected].lifePoints = playerInfo[attackedSelected].lifePoints - (0.3 * playerInfo[attacker].strength);
+	} 
 
+	return;
 }
 void magicAttack(struct player playerInfo[6], int numberOfPlayers, int currentPlayer)
 {
