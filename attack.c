@@ -8,11 +8,6 @@
 void nearAttack(struct player playerInfo[6], int distanceArray[6][6], int attacker, int numberOfPlayers)
 {
 	
-	return;
-}
-void distantAttack(struct player playerInfo[6], int distanceArray[6][6], int attacker, int numberOfPlayers)
-{
-
 	int attacked, i, selectedAttack, attackedSelected;
 
 	for(i = 0; i < numberOfPlayers; i++)
@@ -59,6 +54,11 @@ void distantAttack(struct player playerInfo[6], int distanceArray[6][6], int att
 	}
 	//nothing here ethier
 	return;
+	return;
+}
+void distantAttack(struct player playerInfo[6], int distanceArray[6][6], int attacker, int numberOfPlayers)
+{
+
 }
 void magicAttack(struct player playerInfo[6], int numberOfPlayers, int currentPlayer)
 {
