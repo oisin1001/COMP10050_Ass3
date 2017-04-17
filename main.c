@@ -83,17 +83,17 @@ int main (void)
 		for (j = 0; j < boardSize; j++)
 		{
 			if(board[i][j].type==0)
-                        {
-                        printf("  _LvlGrd_  ");
-                        }
-            if(board[i][j].type==1)
-                        {
-                        printf("   _Hill_   ");
-                        }
-            if(board[i][j].type==2)
-                        {
-                        printf("   _City_   ");
-                        }
+			{
+            printf("r:%d c:%d LvlGrd  ",i+1,j+1);
+			}
+			if(board[i][j].type==1)
+			{
+            printf("r:%d c:%d  Hill   ",i+1,j+1);
+            }
+			if(board[i][j].type==2)
+            {
+            printf("r:%d c:%d  City   ",i+1,j+1);
+            }
 		}
 		printf("\n");
 	}
@@ -117,9 +117,11 @@ int main (void)
 
 while(glados[1]==OK)//while there are at least 2 players still alive keep playing
 {
+
 	// This lets the user choose to move
 	moveSlots(board, playerInfo, numberOfPlayers);
 
+	//lets players quit if they want to
 	quitgame(playerInfo, i,numberOfPlayers);
 
 	//changes player stats based on where they move
