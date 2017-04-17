@@ -26,17 +26,14 @@ void quitgame(struct player playerInfo[6], int currentplayer, int numberOfPlayer
 		{
 		if(d[currentplayer]==Alive)
 			{
-				printf("player %d if you wish to quit the game enter 1, enter 2 to continue playing\n ",currentplayer);
+				printf("player %d if you wish to quit the game enter 1, enter 2 to continue playing\n ",currentplayer+1);
 				scanf("%d",&l);
 			}
 		if(l==1)
-			{
+		{
 			d[currentplayer]=Dead;
-			}
-		else if(l==2)
-			{
+		}
 
-			}
 		}
 
 	return;

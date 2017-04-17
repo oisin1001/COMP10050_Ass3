@@ -137,6 +137,7 @@ while(glados[1]==OK)//while there are at least 2 players still alive keep playin
 	printf("-------Player Stats after moving-------\n");
 	printStats(numberOfPlayers, playerInfo);
 
+	// This finds the distance between each player and each other player
 	for(i = 0; i < numberOfPlayers; i++)
 	{
 		for(j=0; j < numberOfPlayers; j++)

@@ -34,7 +34,7 @@ void findDistance(int rowA, int columnA, int rowB, int columnB, int distanceArra
 //		printf("\nFunction reachDesiredElement invoked\n");
 
 		//prints the column and the row of the initial slot from which the search starts
-		printf("Initial slot (%d, %d) -> \n", rowA, columnA);
+//		printf("Initial slot (%d, %d) -> \n", rowA, columnA);
 
 
 		//while the slot is not found
@@ -47,7 +47,7 @@ void findDistance(int rowA, int columnA, int rowB, int columnB, int distanceArra
 		//		currentSlot = currentSlot->up;
 				rowA++;
 				//prints the column and the row of the current slot
-				printf("Current slot (%d, %d) -> \n",rowA,columnA);
+//				printf("Current slot (%d, %d) -> \n",rowA,columnA);
 				numMoves++;
 			}
 			//if the row of the current slot is < of the row of the desired slot,
@@ -56,7 +56,7 @@ void findDistance(int rowA, int columnA, int rowB, int columnB, int distanceArra
 				//the current slot now points to the slot one row down
 				rowA--;
 				//prints the row and the column of the current slot
-				printf("Current slot (%d, %d) -> \n",rowA,columnA);
+//				printf("Current slot (%d, %d) -> \n",rowA,columnA);
 				numMoves++;
 			}
 			//if the column of the current slot is > of the column of the desired slot,
@@ -66,7 +66,7 @@ void findDistance(int rowA, int columnA, int rowB, int columnB, int distanceArra
 				//the current slot now points to the slot one column left
 				columnA++;
 				//prints the row and the column of the current slot
-				printf("Current slot (%d, %d) -> \n",rowA,columnA);
+//				printf("Current slot (%d, %d) -> \n",rowA,columnA);
 				numMoves++;
 			}
 
@@ -77,21 +77,21 @@ void findDistance(int rowA, int columnA, int rowB, int columnB, int distanceArra
 				//the current slot now points to the slot one column right
 				columnA--;
 				//prints the row and the column of the current slot
-				printf("Current slot (%d, %d) -> \n",rowA,columnA);
+//				printf("Current slot (%d, %d) -> \n",rowA,columnA);
 				numMoves++;
 
 			}
 			//if the current slot is at a column and a row equal to the desired column and row, respectively
 			// we found the slot
 			if(columnA == columnB && rowA == rowB){
-				printf("Found\n");
+//				printf("Found\n");
 				found = true;
 
 			}
 
 		}
 
-		printf("Total number of moves: %d\n\n", numMoves);
+//		printf("Total number of moves: %d\n\n", numMoves);
 		foundDistance[player1][player2] = true;
 		foundDistance[player2][player1] = true;
 		distanceArray[player1][player2] = numMoves;

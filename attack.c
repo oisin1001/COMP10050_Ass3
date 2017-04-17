@@ -31,12 +31,12 @@ void nearAttack(struct player playerInfo[6], int distanceArray[6][6], int attack
 		{
 			printf("Type %d to attack player %d\n", i+1, i+1);
 			attackAvailable = true;
-			scanf("%d", &attackedSelected);
 		} else {
 			printf("Cannot attack\n");
 			noOptions = true;
 		}
 	}
+	scanf("%d", &attackedSelected);
 
 
 	while(attackAvailable != true && noOptions != true) {
@@ -89,13 +89,13 @@ void distantAttack(struct player playerInfo[6], int distanceArray[6][6], int att
 		if(playerInfo[i].canAttack == true)
 		{
 			printf("Type %d to attack player %d\n", i+1, i+1);
-			attackAvailable = true;
-			scanf("%d", &attackedSelected);
+			attackAvailable = true;	
 		} else {
 			printf("Cannot attack\n");
 			noOptions = true;
 		}
 	}
+	scanf("%d", &attackedSelected);
 
 
 	while(attackAvailable != true && noOptions != true) {
@@ -110,8 +110,9 @@ void distantAttack(struct player playerInfo[6], int distanceArray[6][6], int att
 		}
 		scanf("%d", &attackedSelected);
 	}
+	
 
-	while(noOptions != true) {
+	if(noOptions != true) {
 		if (playerInfo[attacker].dexterity > playerInfo[attackedSelected].dexterity)
 		{
 			playerInfo[attackedSelected].lifePoints = playerInfo[attackedSelected].lifePoints - (0.3 * playerInfo[attacker].strength);
