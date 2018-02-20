@@ -53,7 +53,7 @@ void invalidStatCheck(int numberOfPlayers, struct player playerInfo[6]){
 
 void playerdeath(int numberOfPlayers, struct player playerInfo[6])
 {
-
+	// Checks if player is dead
 	int i;
 	for(i = 0; i < numberOfPlayers; i++)
 	{
@@ -66,6 +66,8 @@ void playerdeath(int numberOfPlayers, struct player playerInfo[6])
 
 void allalive(int numberOfPlayers, struct player playerInfo[6])
 {
+	// Checks if everyone is dead
+	// If one player is alive, the game is over
 	int i,t=0;
 	for(i = 0; i < numberOfPlayers; i++)
 		{
@@ -84,6 +86,7 @@ void allalive(int numberOfPlayers, struct player playerInfo[6])
 	}
 }
 
+// Change stats depending on slot type
 void changeStats(int numberOfPlayers, struct player playerInfo[6])
 {
 	int i;

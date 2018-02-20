@@ -11,6 +11,7 @@ void nearAttack(struct player playerInfo[6], int distanceArray[6][6], int attack
 	bool attackAvailable = false;
 	bool noOptions = false;
 
+	// reset canAttack for all players
 	for(i = 0; i < numberOfPlayers; i++)
 	{
 		playerInfo[i].canAttack = false;
@@ -18,6 +19,7 @@ void nearAttack(struct player playerInfo[6], int distanceArray[6][6], int attack
 
 	for (attacked = 0; attacked < numberOfPlayers; attacked++)
 	{
+		// if you are zero or one square away, you can near attack
 		if (distanceArray[attacker][attacked] == 0 || distanceArray[attacker][attacked] == 1)
 		{
 			playerInfo[attacked].canAttack = true;
@@ -27,18 +29,19 @@ void nearAttack(struct player playerInfo[6], int distanceArray[6][6], int attack
 	printf("Select a player to attack:\n");
 	for(i = 0; i < numberOfPlayers; i++)
 	{
+		// Select who you can attack
 		if(playerInfo[i].canAttack == true)
 		{
 			printf("Type %d to attack player %d\n", i+1, i+1);
 			attackAvailable = true;
-			scanf("%d", &attackedSelected);
 		} else {
 			printf("Cannot attack\n");
 			noOptions = true;
 		}
 	}
+	scanf("%d", &attackedSelected);
 
-
+	// while loop in case an invalid input is entered
 	while(attackAvailable != true && noOptions != true) {
 		printf("Select a player to attack:\n");
 		for(i = 0; i < numberOfPlayers; i++)
@@ -52,7 +55,8 @@ void nearAttack(struct player playerInfo[6], int distanceArray[6][6], int attack
 		scanf("%d", &attackedSelected);
 	}
 
-	while(noOptions != true) {
+	// If you can attack, do the attack
+	if(noOptions != true) {
 		if (playerInfo[attackedSelected].strength <= 70)
 		{
 			playerInfo[attackedSelected].lifePoints = playerInfo[attackedSelected].lifePoints - (0.5 * playerInfo[attacker].strength);
@@ -70,11 +74,13 @@ void distantAttack(struct player playerInfo[6], int distanceArray[6][6], int att
 	bool attackAvailable = false;
 	bool noOptions = false;
 
+	// Reset canAttack
 	for(i = 0; i < numberOfPlayers; i++)
 	{
 		playerInfo[i].canAttack = false;
 	}
 
+	// check if the distance is enough for this type of attack
 	for (attacked = 0; attacked < numberOfPlayers; attacked++)
 	{
 		if (distanceArray[attacker][attacked] == 2 || distanceArray[attacker][attacked] == 3 || distanceArray[attacker][attacked] == 4)
@@ -83,19 +89,20 @@ void distantAttack(struct player playerInfo[6], int distanceArray[6][6], int att
 		}
 	}
 
+
 	printf("Select a player to attack:\n");
 	for(i = 0; i < numberOfPlayers; i++)
 	{
 		if(playerInfo[i].canAttack == true)
 		{
 			printf("Type %d to attack player %d\n", i+1, i+1);
-			attackAvailable = true;
-			scanf("%d", &attackedSelected);
+			attackAvailable = true;	
 		} else {
 			printf("Cannot attack\n");
 			noOptions = true;
 		}
 	}
+	scanf("%d", &attackedSelected);
 
 
 	while(attackAvailable != true && noOptions != true) {
@@ -110,8 +117,9 @@ void distantAttack(struct player playerInfo[6], int distanceArray[6][6], int att
 		}
 		scanf("%d", &attackedSelected);
 	}
-
-	while(noOptions != true) {
+	
+	// If you can attack, then attack
+	if(noOptions != true) {
 		if (playerInfo[attacker].dexterity > playerInfo[attackedSelected].dexterity)
 		{
 			playerInfo[attackedSelected].lifePoints = playerInfo[attackedSelected].lifePoints - (0.3 * playerInfo[attacker].strength);
@@ -121,6 +129,7 @@ void distantAttack(struct player playerInfo[6], int distanceArray[6][6], int att
 	return;
 }
 
+// MAGIC ATTACK
 void magicAttack(struct player playerInfo[6], int numberOfPlayers, int currentPlayer)
 {
 	int i, attackedPlayer;
@@ -132,7 +141,9 @@ void magicAttack(struct player playerInfo[6], int numberOfPlayers, int currentPl
 		}
 	}
 	scanf("%d", &attackedPlayer);
+	// Decrease the attacker by one, as the array uses values 0-5 instead of 1-6
 	attackedPlayer--;
+	// Do attack calculations
 	playerInfo[attackedPlayer].lifePoints = (0.5 * playerInfo[currentPlayer].magic) + (0.2 * playerInfo[currentPlayer].smartness);
 //	((0.5 * Magic Skills of attacker player) + (0.2 * Smartness of attacker player))
 }
